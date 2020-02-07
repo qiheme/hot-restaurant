@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint **/*.js",
+    "lint": "eslint **/*.html && eslint src/*.js && eslint server.js" ,
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
@@ -17,6 +17,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.20.1"
   }
 }
