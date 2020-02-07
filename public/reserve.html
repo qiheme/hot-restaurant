@@ -24,11 +24,11 @@
       <h2 class="text-center">Make your reservation</h2>
       <br>
       <div class="text-center">
-        <a href="/tables">
+        <a href="tables.html">
           <button class="btn btn-lg btn-primary">
             <span class="fa fa-list-alt"></span> View Tables</button>
         </a>
-        <a href="/">
+        <a href="home.html">
           <button class="btn btn-lg btn-default">
             <span class="fa fa-home"></span>
           </button>
@@ -89,7 +89,7 @@
   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-  $(".submit").on("click", function(event) {
+  $(".submit").on("click", function (event) {
     event.preventDefault();
 
     // Here we grab the form elements
@@ -108,7 +108,7 @@
     // depending on if a tables is available or not.
 
     $.post("/api/tables", newReservation,
-      function(data) {
+      function (data) {
 
         // If a table is available... tell user they are booked.
         if (data) {

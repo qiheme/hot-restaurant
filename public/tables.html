@@ -24,8 +24,9 @@
       <br>
 
       <div class="text-center">
-        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a>
-        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+        <a href="reserve.html"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make
+            Reservation</button></a>
+        <a href="home.html"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
       </div>
     </div>
 
@@ -58,7 +59,8 @@
     <footer class="footer mt-4">
       <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a
+            href="/api/waitlist">API
             Wait List</a>
       </div>
     </footer>
@@ -78,7 +80,7 @@
   function runTableQuery() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $.ajax({ url: "/api/tables", method: "GET" })
-      .then(function(tableData) {
+      .then(function (tableData) {
 
         // Here we then log the tableData to console, where it will show up as an object.
         console.log(tableData);
@@ -111,7 +113,7 @@
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $.ajax({ url: "/api/waitlist", method: "GET" })
-      .then(function(waitData) {
+      .then(function (waitData) {
 
         // Here we then log the waitlistData to console, where it will show up as an object.
         console.log(waitData);
@@ -145,7 +147,7 @@
     alert("Clearing...");
 
     // Clear the tables on the server and then empty the elements on the client
-    $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+    $.ajax({ url: "/api/clear", method: "POST" }).then(function () {
       $("#waitList").empty();
       $("#tableList").empty();
     });
