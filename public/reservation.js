@@ -1,18 +1,18 @@
 class Reservation {
 
-  constructor(name, phone, email, ID) {
-    this.name = name,
-    this.phone = phone
-    this.ID = ID,
-    this.email = email
+  constructor(name, phone, email, id) {
+    this.name = name;
+    this.phone = phone;
+    this.id = id;
+    this.email = email;
   }
 
   getName() {
     return this.name;
   }
 
-  getID() {
-    return this.ID;
+  getId() {
+    return this.id;
   }
 
   getPhone() {

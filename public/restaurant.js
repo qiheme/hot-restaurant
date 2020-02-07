@@ -1,8 +1,8 @@
 class Restaurant {
 
   constructor() {
-    this.reservations = [],
-    this.waitlist = []
+    this.reservations = [];
+    this.waitlist = [];
   }
 
   addToReservations(reservation) {
@@ -30,14 +30,7 @@ class Restaurant {
     this.five.empty();
   }
 
-  writeReservations() {
-
-  }
-
-  writeWaitlist() {
-
-  }
-
 }
 
 module.exports = Restaurant;
+
