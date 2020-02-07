@@ -89,20 +89,11 @@
   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-  const Reservation = require("./reservation.js");
-
   $(".submit").on("click", function(event) {
     event.preventDefault();
 
     // Here we grab the form elements
-
-    const  customerName: $("#reserve-name").val().trim();
-    const  phoneNumber: $("#reserve-phone").val().trim();
-    const  customerEmail: $("#reserve-email").val().trim();
-    const   customerID: $("#reserve-unique-id").val().trim();
-
-
-    var newReservation = new Reservation()
+    var newReservation = {
       customerName: $("#reserve-name").val().trim(),
       phoneNumber: $("#reserve-phone").val().trim(),
       customerEmail: $("#reserve-email").val().trim(),
