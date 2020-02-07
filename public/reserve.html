@@ -89,16 +89,45 @@
   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
+  const Restaurant = require("restaurant.js")
+  const Reservation = require("reservation.js")
+
+
+  const restaurant = new Restaurant();
+  // create restaurant object, empty arrays
   $(".submit").on("click", function (event) {
     event.preventDefault();
 
-    // Here we grab the form elements
-    var newReservation = {
-      customerName: $("#reserve-name").val().trim(),
-      phoneNumber: $("#reserve-phone").val().trim(),
-      customerEmail: $("#reserve-email").val().trim(),
-      customerID: $("#reserve-unique-id").val().trim()
-    };
+    // create reservation object
+    // push to restaurant arrays
+    // write files
+    const customerName = $("#reserve-name").val().trim();
+    const phoneNumber = $("#reserve-phone").val().trim();
+    const customerEmail = $("#reserve-email").val().trim();
+    const customerID = $("#reserve-unique-id").val().trim();
+
+    // Here we grab the form elements 
+    var newReservation = new Reservation(customerName, phoneNumber, customerID, customerEmail);
+    restaurant.addToReservations(newReservation);
+    const reservationList = restaurant.reservations;
+    const waitlist = restaurant.waitlist;
+
+    async function writeReservationsFile(reservationList) {
+      await fs.writeFile('reservations.json', reservationList, (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log('success, reservations file written!');
+      })
+    }
+    async function writeWaitlistFile(waitlist) {
+      await fs.writeFile('waitlist.json', waitlist, (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log('success, waitlist file written!');
+      })
+    }
 
     console.log(newReservation);
 
